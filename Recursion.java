@@ -2,7 +2,7 @@ public class Recursion
 {
 	public static long factorialI(long n)
 	{
-		long result = n;
+		long result = (n <= 0) ? 1 : n;
 		for (long i = n - 1; i > 0; i--)
 		{
 			result *= i;
@@ -113,6 +113,23 @@ public class Recursion
 		
 		
 		int[] array = {1, 5, 3, 8, 9, 7, 2};
+		if (args.length > 0)
+		{
+			int[] temp = new int[args.length];
+			try
+			{
+				for(int i = 0; i < args.length; ++i)
+				{
+					temp[i] = Integer.parseInt(args[i]);
+				}
+				array = temp; // exception safety
+			} catch(NumberFormatException e)
+			{
+				System.err.println("Invalid command line array; using the default array...");
+			}
+		}
+		System.out.println("Given array : " + java.util.Arrays.toString(array));
+		System.out.println("The maximum is ");
 		System.out.println(findMax(array, 0, array.length));
 		
 	}
