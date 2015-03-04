@@ -69,6 +69,7 @@ public class Recursion
 		{
 			return 0;
 		}
+		
 		if (end - start == 1) //base case
 		{
 			return array[start];
@@ -77,7 +78,7 @@ public class Recursion
 		//divide-and-conquer
 		int mid = (start + end) / 2;
 		int maxLeft = findMax(array, start, mid);
-		int maxRight = findMax(array, mid + 1, end);
+		int maxRight = findMax(array, mid, end);
 
 		//combine
 		if (maxLeft > maxRight)
@@ -130,7 +131,7 @@ public class Recursion
 		}
 		System.out.println("Given array : " + java.util.Arrays.toString(array));
 		System.out.println("The maximum is ");
-		System.out.println(findMax(array, 0, array.length));
+		System.out.println(findMax(array, 0, array.length-1));
 		
 	}
 }
